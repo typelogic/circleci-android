@@ -4,7 +4,7 @@ MAINTAINER dexter@newlogic.io
 ENV API_LEVEL 29
 ENV project $HOME/project/
 ENV build $project/build/
-ENV libheaders $project/libheaders/
+ENV dependencies $project/dependencies/
 ENV platform android-$API_LEVEL
 ENV toolchain $HOME/toolchain/
 

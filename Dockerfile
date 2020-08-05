@@ -1,7 +1,10 @@
 FROM circleci/android:api-29-ndk
-MAINTAINER dexter@newlogic.io
+MAINTAINER dexter@newlogic.com
 
-ENV API_LEVEL 29
+COPY protoc $HOME/bin/
+
+ENV PATH=$HOME/bin:$PATH
+ENV API_LEVEL 23
 ENV project $HOME/project/
 ENV build $project/build/
 ENV dependencies $project/dependencies/
@@ -15,7 +18,7 @@ WORKDIR /tmp/
 RUN mkdir $toolchain && sudo apt-get update
 
 RUN sudo apt-get install -y cmake autoconf libtool libtool-bin vim \
-    libfontconfig1 libxrender1 libxrender1 libxtst6 libxi6
+    libfontconfig1 libxrender1 libxrender1 libxtst6 libxi6 lcov
 
 RUN $ANDROID_NDK_HOME/build/tools/make-standalone-toolchain.sh \
     --arch=arm \

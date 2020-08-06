@@ -1,10 +1,9 @@
 FROM circleci/android:api-29-ndk
 MAINTAINER dexter@newlogic.com
 
-COPY baseutils/bin/protoc /opt/newlogic/bin/
-COPY baseutils/scripts/lcov_cobertura.py /opt/newlogic/scripts/
+COPY baseutils $HOME
 
-ENV PATH=/opt/newlogic/bin:$PATH
+ENV PATH=$HOME/baseutils/bin:$PATH
 ENV API_LEVEL 23
 ENV project $HOME/project/
 ENV build $project/build/
